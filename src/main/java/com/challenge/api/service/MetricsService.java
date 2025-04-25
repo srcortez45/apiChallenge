@@ -3,8 +3,9 @@ package com.challenge.api.service;
 import com.challenge.api.common.dto.ApiRequest;
 import com.challenge.api.common.dto.ApiResponse;
 
-public interface Service {
+
+public interface MetricsService {
 	
-	ApiResponse DynamicPercentage(ApiRequest apiRequest);
+	ApiResponse DynamicPercentage(Integer id);
 
 }
