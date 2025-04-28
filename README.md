@@ -48,11 +48,17 @@ Inicialización: Se ejecuta un script init.sql que crea las tablas necesarias.
 ## 🛠️ Cómo levantar los servicios
 **Opción 1** : Levantar todo (API + Servicio Externo + Base de Datos)
 
+### ⚠️ IMPORTANTE ⚠️ ###
+**Se debe generar el JAR del proyecto de springboot**  
+```
+./mvnw clean package
+```
+## Para levantar los contenedores: ##
+
 ```
 podman-compose up
 ```
-Este comando levantará:
-
+## Este comando levantará: ##
 - **api:** Spring Boot app en el puerto 8080  
 - **external-service** Node.js app en el puerto 3000  
 - **postgres-db:** Base de datos PostgreSQL en el puerto 5432  
