@@ -39,7 +39,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -75,13 +74,6 @@
 			<artifactId>mvp</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
-<dependency>
-    <groupId>org.mockito</groupId>
-    <artifactId>mockito-core</artifactId>
-    <version>5.17.0</version>
-    <scope>test</scope>
-</dependency>
 	</dependencies>
 
 	<build>

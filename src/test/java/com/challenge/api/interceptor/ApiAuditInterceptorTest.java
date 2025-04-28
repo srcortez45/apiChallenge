@@ -11,7 +11,7 @@ import org.springframework.mock.web.MockFilterChain;
 
 import static org.mockito.Mockito.*;
 
-class ApiAuditInterceptorTest {
+public class ApiAuditInterceptorTest {
 
     @InjectMocks
     private ApiAuditInterceptor apiAuditInterceptor;
