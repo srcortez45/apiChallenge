@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16
+    container_name: postgres-db
+    restart: always
+    environment:
+      POSTGRES_USER: mvp_user
+      POSTGRES_PASSWORD: mvp_password
+      POSTGRES_DB: mvp_database
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./initdb/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - postgres:/var/lib/postgresql/data/
+
+  external-service:
+    build:
+      context: ./external-service
+      dockerfile: Dockerfile
+    container_name: external-service
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+
+  springboot-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: springboot-api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+      - external-service
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/mvp_database
+      - SPRING_DATASOURCE_USERNAME=mvp_user
+      - SPRING_DATASOURCE_PASSWORD=mvp_password
+      - external.service.url=http://external-service:3000/api/random-number
+      - caching.spring.metricsTTL=60000
+
+volumes:
+  postgres:

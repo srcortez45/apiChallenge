@@ -1,11 +1,12 @@
 package com.challenge.api.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.challenge.api.common.dto.ApiResponse;
@@ -19,13 +20,14 @@ import lombok.extern.slf4j.Slf4j;
 public class MetricsController {
 	
 	@Autowired
-	private MetricsService service;
+	private MetricsService metricsService;
 	
-	@GetMapping("/{id}")
-	public ResponseEntity<ApiResponse> getDynamicPercentage(@PathVariable Integer id) {
-		log.debug("getProductById");
-		ApiResponse response = service.DynamicPercentage(id);
+	@GetMapping
+	public ResponseEntity<ApiResponse<Double>> getDynamicPercentage(@RequestParam Integer num1, @RequestParam Integer num2) {
+		log.debug("getDynamicPercentage");
+		ApiResponse<Double> response = metricsService.DynamicPercentage(num1, num2);
 		return ResponseEntity.status(response.isSuccess() ? HttpStatus.OK : HttpStatus.NOT_FOUND).body(response);
 	}
+	
 
 }										
