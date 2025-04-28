@@ -101,11 +101,14 @@ podman run --name postgres-db \
 - `GET	/api/random-number` 
 
 ## 🧪 Ejecutar tests
-Para correr las pruebas unitarias y de integración:
+Para correr las pruebas unitarias:
 
 ```
 mvn clean test
 ```
+
+para visualizar el reporte se encuentra en la ruta
+``` target/site/jacoco/index.html ```
 
 
 ## 📋 Funcionalidades destacadas
