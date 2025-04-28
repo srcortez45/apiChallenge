@@ -86,20 +86,20 @@ podman run --name postgres-db \
 ---
 
 **Obtiene el historial de solicitudes y respuestas.**
-- `GET` | `/api/v1/history?page=0&size=10&sort=timestamp,desc`  | Obtiene el historial de solicitudes y respuestas con soporte de paginación y ordenamiento. |
+- `GET` | `/api/v1/history?page=0&size=10&sort=id,desc`  | Obtiene el historial de solicitudes y respuestas con soporte de paginación y ordenamiento. |
 
 #### Parámetros opcionales para `/api/v1/history`
 
 - `page`: Número de página (empezando desde `0`). **Por defecto**: `0`.
 - `size`: Número de elementos por página. **Por defecto**: `20`.
 - `sort`: Propiedad por la cual ordenar. Puedes ordenar por múltiples campos, por ejemplo:
-- `timestamp,desc` (por fecha descendente)
+- `id,,desc` (por id descendente)
 - `requestUrl,asc` (por URL ascendente)
 
 **Ejemplos:**
 
 - Obtener la primera página con 10 elementos ordenados por fecha descendente:  
-  ``` GET /api/v1/history?page=0&size=10&sort=timestamp,desc ```
+  ``` GET /api/v1/history?page=0&size=10&sort=id,desc ```
 
 # Servicio externo (Node.js)
 
