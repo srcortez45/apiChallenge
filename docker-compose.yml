@@ -39,7 +39,7 @@ services:
       - SPRING_DATASOURCE_USERNAME=mvp_user
       - SPRING_DATASOURCE_PASSWORD=mvp_password
       - external.service.url=http://external-service:3000/api/random-number
-      - caching.spring.metricsTTL=60000
+      - caching.spring.metricsTTL=1800000
 
 volumes:
   postgres:

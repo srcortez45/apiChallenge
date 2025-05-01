@@ -29,7 +29,7 @@ spring.datasource.password=mvp_password
 spring.datasource.driver-class-name=org.postgresql.Driver
 
 external.service.url=http://localhost:3000/api/random-number
-caching.spring.metricsTTL=60000
+caching.spring.metricsTTL=1800000
 ```
 
 ---
